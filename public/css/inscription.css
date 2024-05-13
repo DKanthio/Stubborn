@@ -1,0 +1,60 @@
+/* inscription.css */
+
+/* Mettre les labels et les champs de formulaire sur des lignes séparées */
+.form-group {
+    margin-bottom: 20px; /* Espacement entre chaque groupe */
+}
+
+.form-group label {
+    display: block; /* Afficher les labels en bloc (une ligne pour chaque label) */
+    margin-bottom: 5px; /* Espacement en bas du label */
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: calc(100% - 22px); /* Utiliser toute la largeur disponible, moins la largeur de la bordure */
+    padding: 10px; /* Espacement interne */
+    border: 1px solid #ccc; /* Bordure */
+    border-radius: 5px; /* Bord arrondi */
+    box-sizing: border-box; /* Inclure les bordures et le remplissage dans la largeur/hauteur totale */
+    margin-top: 5px; /* Espacement au-dessus des champs */
+}
+
+/* Styler les boutons */
+.btn {
+    color: #fff; /* Couleur du texte */
+    background-color: #007bff; /* Couleur de fond */
+    border-color: #007bff; /* Couleur de la bordure */
+    padding: 10px 20px; /* Espacement interne */
+    border-radius: 5px; /* Bord arrondi */
+    text-decoration: none; /* Supprimer le soulignement du texte */
+    display: inline-block; /* Afficher en ligne */
+    transition: background-color 0.3s ease; /* Transition fluide */
+    margin-top: 10px; /* Espacement au-dessus du bouton */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Couleur de fond au survol */
+}
+
+/* Styler les alertes */
+.alert {
+    margin-bottom: 20px; /* Espacement en bas */
+    padding: 15px; /* Espacement interne */
+    border-radius: 5px; /* Bord arrondi */
+}
+
+.alert-danger {
+    color: #721c24; /* Couleur du texte */
+    background-color: #f8d7da; /* Couleur de fond */
+    border-color: #f5c6cb; /* Couleur de la bordure */
+}
+
+.form-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+}
+

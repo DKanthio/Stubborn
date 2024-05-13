@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Boutique{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('css/produit.css') }}">
+</head>
+<body>
+
+{% block body %}
+{% include 'includes/header.html.twig' %}
+
+<section>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4 align-self-start">
+                <table id="prixTable" class="styled-table">
+                    <tr>
+                        <th>Fourchette de Prix</th>
+                    </tr>
+                    <tr>
+                        <td><a href="{{ path('products', {'price_filter': '10-29'}) }}">10 à 29 €</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="{{ path('products', {'price_filter': '30-35'}) }}">30 à 35 €</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="{{ path('products', {'price_filter': '35-50'}) }}">35 à 50 €</a></td>
+                    </tr>
+               </table>
+               <div id="resultat">
+                   {# Afficher les produits filtrés ici #}
+               </div>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    {% for product in featuredProducts|slice(0, 2) %}
+                    <div class="col-md-6">
+                        <div class="card mb-4">
+                            <img src="{{ asset('images/' ~ product.image) }}" class="card-img-top small-image" alt="{{ product.name }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                                <div class="price-and-button">
+                                    <p class="card-text">{{ product.price }}€</p>
+                                    <a href="{{ path('product_details', {'id': product.id}) }}" class="btn btn-primary float-right custom-btn" style=" margin-top: -20px;">Voir</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for product in featuredProducts|slice(2) %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{ asset('images/' ~ product.image) }}" class="card-img-top small-image" alt="{{ product.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <div class="price-and-button">
+                            <p class="card-text">{{ product.price }}€</p>
+                            <a href="{{ path('product_details', {'id': product.id}) }}" class="btn btn-primary float-right custom-btn" style=" margin-top: -20px;">Voir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% include 'includes/footer.html.twig' %}
+
+{% endblock %}
+
+</body>
+</html>

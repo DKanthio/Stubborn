@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Stubborn!{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+   
+</head>
+<body>
+ <header>
+    <div class="logo">
+        <img src="{{ asset('images/logo.png') }}" alt="Logo">
+        <p class="slogan">{{ companyInfo.slogan }}</p>
+    </div>
+    <nav>
+        <ul>
+            {% if app.user %}
+                <li><a href="{{ path('home') }}">Accueil</a></li>
+                <li><a href="{{ path('products') }}">Boutique</a></li>
+                <li><a href="{{ path('cart') }}">Panier</a></li>
+                <li><a href="{{ path('logout') }}">Se déconnecter</a></li>
+               
+            {% else %}
+                <li><a href="{{ path('home') }}">Accueil</a></li>
+                <li><a href="{{ path('login') }}">Se connecter</a></li>
+                <li><a href="{{ path('registration') }}">S'inscrire</a></li>
+            {% endif %}
+        </ul
+    </nav>
+</header>
+
+</body>
+</html>

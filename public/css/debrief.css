@@ -1,0 +1,40 @@
+.small-image {
+    max-width: 200px; 
+    height: auto; 
+}
+
+.styled-table {
+    width: 50%;
+    border-collapse: collapse;
+    border: 1px solid #000;
+    margin-left: auto; 
+    margin-top: auto; 
+}
+.align-middle {
+    height: 0px; /* ajustez cette valeur selon la hauteur souhaitée */
+    
+}
+a:hover {
+    color: black; 
+    text-decoration: none; 
+}
+
+a{
+    color: #000;
+}
+
+th {
+    border: 1px solid #000;
+    padding: 10px;
+}
+
+td:hover {
+    background-color: #ced6e4;
+   
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Ajustez selon l'espace souhaité */
+}
+

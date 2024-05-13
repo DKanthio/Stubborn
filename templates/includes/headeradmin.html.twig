@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Stubborn!{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+   
+</head>
+<body>
+ <header>
+    <div class="logo">
+        <img src="{{ asset('images/logo.png') }}" alt="Logo">
+        <p class="slogan">{{ companyInfo.slogan }}</p>
+    </div>
+    <div class="centre" style=" text-align: center; border: 1px solid black; padding: 5px; color: white;"> <!-- Utiliser une balise <div> -->
+        <h1>Black-Office</<h1> 
+    </div>
+    <nav>
+        <ul>
+            <li><a href="{{ path('products') }}">Boutique</a></li>
+            <li><a href="{{ path('logout') }}">Se déconnecter</a></li>
+        </ul
+    </nav>
+</header>
+
+</body>
+</html>

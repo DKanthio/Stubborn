@@ -1,0 +1,73 @@
+{# Template pour afficher les détails du produit #}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Détails du Produit</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('css/debrief.css') }}">
+</head>
+<body>
+{% block body %}
+{% include 'includes/header.html.twig' %}
+{% for message in app.flashes('error') %}
+    <div class="alert alert-danger">
+        {{ message }}
+    </div>
+{% endfor %}
+<section>
+    <div class="container mt-4">
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="{{ asset('images/' ~ product.image) }}" class="card-img-top small-image" alt="{{ product.name }}">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12 name-price align-middle">
+                                <h2 class="card-title">{{ product.name }}</h2>
+                                <p class="card-text">{{ product.price }}€</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table id="cartTable" class="styled-table">
+                                    <tr>
+                                        <th colspan="4">Taille</th>
+                                    </tr>
+                                    <tr>
+                                       <td><a href="?size=XS">XS</a></td>
+                                    </tr>
+                                    <tr>
+                                       <td><a href="?size=S">S</a></td>
+                                    </tr>
+                                    <tr>
+                                       <td><a href="?size=M">M</a></td>
+                                    </tr>
+                                    <tr>
+                                       <td><a href="?size=L">L</a></td>
+                                    </tr>
+                                    <tr>
+                                       <td><a href="?size=XL">XL</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                        <div class="col-md-12 button-container">
+                           <a href="{{ path('add-to-cart', {'id': product.id, 'size': app.request.query.get('size')}) }}" class="btn btn-primary">Ajouter au panier</a>
+
+                        </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% include 'includes/footer.html.twig' %}
+{% endblock %}
+</body>
+</html>

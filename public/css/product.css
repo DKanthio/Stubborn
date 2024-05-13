@@ -1,0 +1,5 @@
+/* CSS pour les produits */
+.small-image {
+    max-width: 200px; /* Modifier la taille maximale selon vos besoins */
+    height: auto; /* Permet de maintenir les proportions de l'image */
+}

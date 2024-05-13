@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Sutbborn!{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('css/product.css') }}">
+   
+</head>
+<body>
+{% if app.user %}
+   {% include 'includes/header.html.twig' %}
+    <section>
+       <div class="row mt-4 mx-3">
+           {% for product in featuredProducts %}
+                <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{{ asset('images/' ~ product.image) }}" class="card-img-top small-image" alt="{{ product.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <div class="price-and-button">
+                           <p class="card-text">{{ product.price }}€</p>
+                           <div class="text-center"> 
+                              <a href="{{ path('product_details', {'id': product.id}) }}" class="col-md-4 btn btn-primary custom-btn" style=" margin-top: -50px; float: right;">Voir</a>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% include 'includes/footer.html.twig' %}
+{% else %}
+    {% include 'includes/header.html.twig' %}
+    <section>
+        <div class="row">
+            {% for product in featuredProducts %}
+                <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{ asset('images/' ~ product.image) }}" class="card-img-top small-image" alt="{{ product.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">{{ product.price }}€</p>
+                    </div>
+                </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% include 'includes/footer.html.twig' %}
+{% endif %}
+</body>
+</html>
+
+
+

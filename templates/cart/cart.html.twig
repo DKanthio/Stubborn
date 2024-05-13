@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Panier</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('css/panier.css') }}">
+</head>
+<body>
+{% block body %}
+{% include 'includes/header.html.twig' %}
+<div class="container mt-4">
+
+    {% for cart in cart %}
+    <div class="card mb-3" style="max-width: 880px;">
+        <div class="row no-gutters">
+    <div class="col-md-3">
+        <img src="{{ asset('images/' ~ cart.product.image) }}" class="card-img" alt="{{ cart.product.name }}">
+    </div>
+    <div class="col-md-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ cart.product.name }}</h5>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card-body">
+            <p class="card-text">{{ cart.product.price }}€</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card-body">
+            <p class="card-text">{{ cart.size }}</p>
+        </div>
+    </div>
+</div>
+<div class="row mt-4 mr-2">
+    <div class="col-md-12 ">
+        <a href="{{ path('remove_from_cart', {'cartId': cart.id}) }}" class="btn btn-danger mb-3"style=" float: right;">RETIRER DU PANIER</a>
+    </div>
+</div>
+
+    </div>
+    {% endfor %}
+</div>
+<div class="mb-3 ml-md-2">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <h5 class="card-title text-right with-border">Total: {{ total }}€</h5>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-8 mb-2">
+                        <a href="{{ path('app_stripe') }}" class="btn btn-danger btn-sm btn-block" style="background-color: rgba(255, 0, 0, 0.2) !important; border-color: red !important; color: #000;">FINALISER MA COMMANDE</a>
+                    </div>
+                    <div class="col-md-8">
+                        <a href="{{ path('products') }}" class="btn btn-success btn-sm btn-block" style="background-color: rgba(0, 128, 0, 0.2) !important; border-color: green !important; color: #000;">CONTINUER MES ACHATS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'includes/footer.html.twig' %}
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,61 @@
+controllers:
+    resource: ../src/Controller/
+    type: annotation
+
+kernel:
+    resource: ../src/Kernel.php
+    type: annotation
+
+
+home:
+    path: /
+    controller: App\Controller\HomeController::index
+
+registration:
+    path: /register
+    controller: App\Controller\RegistrationController::register
+
+login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+
+products:
+    path: /products
+    controller: App\Controller\ShopController::index
+
+remove_from_cart:
+    path: /cart/{cartId}/remove
+    controller: App\Controller\ShopController::removeFromCart
+total:
+    path: /total
+    controller: App\Controller\CartController::total
+
+add-to-cart:
+    path: /add-to-cart/{id}
+    controller: App\Controller\ShopController::addToCart
+    
+cart:
+    path: /cart
+    controller: App\Controller\CartController::cart
+
+logout:
+    path: /logout
+    controller: App\Controller\SecurityController::logout
+
+forgot_password:
+    path: /mot-de-passe-oublie
+    controller: App\Controller\AuthController::forgotPassword
+
+confirm_reset_password:
+    path: /confirmer-reset-mot-de-passe/{email}
+    controller: App\Controller\AuthController::confirmResetPassword
+
+admin_dashboard:
+    path: /admin
+    controller: App\Controller\AdminController::index   
+
+app_stripe:
+    path: /stripe
+    controller: App\Controller\StripeController::index
+
+
